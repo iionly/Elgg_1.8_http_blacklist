@@ -17,6 +17,8 @@ function http_blacklist_init() {
 
 		elgg_register_plugin_hook_handler('route', 'all', 'http_blacklist_router');
 	}
+
+	elgg_register_action('http_blacklist/reset', elgg_get_plugins_path() . 'http_blacklist/actions/http_blacklist/reset.php', 'admin');
 }
 
 function http_blacklist_router($hook, $type, $return, $params) {
@@ -87,6 +89,12 @@ function http_blacklist_router($hook, $type, $return, $params) {
 
 		// if $result[0] is equal 0 it's a known search engine. In this case $result[1] and $result[2] have different meanings
 		if (($result[3] != 0) && ($days < $httpblmaxdays) && ($threat > $httpblmaxthreat)) {
+			$plugin = elgg_get_plugin_from_id('http_blacklist');
+			if (!$plugin->counter) {
+				$plugin->counter = 0;
+			}
+			++$plugin->counter;
+
 			if ($httpblhoneypot) {
 				header("HTTP/1.1 301 Moved Permanently");
 				header("Location: ".$httpblhoneypot);
@@ -97,6 +105,7 @@ function http_blacklist_router($hook, $type, $return, $params) {
 				echo "403 Forbidden";
 				exit;
 			}
+
 			return false;
 		}
 	}

@@ -1,6 +1,6 @@
 http:blacklist for Elgg 1.8 + 1.9
-Latest Version: 1.8.0
-Released: 2014-04-27
+Latest Version: 1.8.1
+Released: 2014-05-02
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
 Copyright: (c) iionly
@@ -25,6 +25,10 @@ Installation:
 
 
 Changelog:
+
+1.8.1:
+
+- Counter for number of blocked/redirected page accesses added. Counter is displayed on http:blacklist plugin settings page and can be reset.
 
 1.8.0:
 
