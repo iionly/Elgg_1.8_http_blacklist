@@ -1,13 +1,9 @@
-http:blacklist for Elgg 1.8 + 1.9
-Latest Version: 1.8.1
-Released: 2014-05-02
+http:blacklist for Elgg 1.8
+Latest Version: 1.8.2
+Released: 2014-05-22
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
 Copyright: (c) iionly
-
-
-
-This is a WORK IN PROGRESS! Use on productive sites with care at the moment! Feedback appreciated!
 
 
 This plugin checks the IP addresses of site visitors against listings in the Project Honey Pot blacklist (http:bl). Currently, this is done only for logged-out visitors (+ bots/crawlers etc.) who visit the Login, Register or Lost Password pages. If a possible threatening IP is identified, it gets either blocked from accessing these pages or you can also redirect the access to a honeypot site that you have created.
@@ -25,6 +21,10 @@ Installation:
 
 
 Changelog:
+
+1.8.2:
+
+- Separation of plugin releases for Elgg 1.8 and Elgg 1.9 due to BC-breaking changes in 'route' plugin hook introduced in Elgg 1.9. For the Elgg 1.8 version there's no changes in the code but only this README file is updated.
 
 1.8.1:
 
